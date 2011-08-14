@@ -1,28 +1,12 @@
-<h1>Listing posts</h1>
-
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Body</th>
-	<th>Author</th>
-	<th>Comments</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<h1>My Super Impressive Blog</h1>
 
 <% @posts.each do |post| %>
-  <tr>
-    <td><%= post.title %></td>
-    <td><%= post.body %></td>
-	<td><%= post.author %></td>
-	<td><%= post.comments.size %></td>
-    <td><%= link_to 'Show', post %></td>
-    <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+    <b>Title</b>: <%= post.title %><br/>
+    <b>Body</b>: <%= post.body %><br/>
+	<b>Author</b>: <%= post.author %><br/>
+	<b>Comments</b>: <%= post.comments.size %><br/>
+    <b>Actions</b>: <%= link_to 'Show', post %> | <%= link_to 'Edit', edit_post_path(post) %> | <%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %><br/><br/>
 <% end %>
-</table>
 
 <br />
 

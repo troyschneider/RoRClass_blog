@@ -1,0 +1,10 @@
+
+    <b>pTitle</b>: <%= post.title %><br/>
+    <b>Body</b>: <%= raw post.body %><br/>
+	<b>Author</b>: <%= post.author %> on <%= friendly_date(post.created_at) %><br/>
+	<b>Comments</b>: <%= post.comments.size %><br/>
+    <b>Actions</b>: 
+	<%= link_to 'View it', post %> | 
+	<%= link_to 'Edit', edit_post_path(post) %> | 
+	<%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %>
+	<br/><br/>

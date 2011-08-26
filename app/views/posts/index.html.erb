@@ -1,12 +1,5 @@
-<h1>My Super Impressive Blog</h1>
-<hr>
-<% @posts.each do |post| %>
-    <b>Title</b>: <%= post.title %><br/>
-    <b>Body</b>: <%= post.body %><br/>
-	<b>Author</b>: <%= post.author %><br/>
-	<b>Comments</b>: <%= post.comments.size %><br/>
-    <b>Actions</b>: <%= link_to 'Show', post %> | <%= link_to 'Edit', edit_post_path(post) %> | <%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %><br/><br/>
-<% end %>
+
+<%= render @posts %>
 
 <br />
 

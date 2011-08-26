@@ -7,16 +7,35 @@
 
 <p>
   <b>Body:</b>
-  <%= @post.body %>
+  <%= raw @post.body %>
 </p>
 
 <p>
-  <b>Comments:</b>
-  <% @post.comments.each do |comment| %>
-    <li><%= comment.author %> wrote "<%= comment.body %>" at <%= comment.created_at %></li>
-  <% end %>
+	<% if @post.comments.count > 0 %>
+  		<b>Comments:</b>
+  		<% @post.comments.each do |comment| %>
+    		<li><%= comment.author %> wrote "<%= comment.body %>" at <%= friendly_dateTime(comment.created_at) %></li>
+  		<% 
+		end
+	else %>
+		<b>No comments yet</b>
+	<% end %>
 </p>
 
+<h3>Add a comment</h3>
+<%= form_for([@post, @post.comments.build]) do |f| %>
+	<div class="field">
+		<%= f.label :author %><br/>
+		<%= f.text_field :author %>
+	</div>
+	<div class="field">
+		<%= f.label :body %><br/>
+		<%= f.text_field :body %>
+	</div>
+	<div class="action">
+		<%= f.submit %>
+	</div>
+<% end %>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
